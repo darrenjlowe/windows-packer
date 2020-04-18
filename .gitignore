@@ -4,3 +4,4 @@
 output*
 packer_cache*
 ISO*
+/output*
