@@ -1,0 +1,6 @@
+*.iso
+*.VHD
+*.vhd
+output*
+packer_cache*
+ISO*
