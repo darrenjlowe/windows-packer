@@ -7,3 +7,4 @@ ISO*
 /output*
 /packer_cache*
 *.vhdx
+/output/*
