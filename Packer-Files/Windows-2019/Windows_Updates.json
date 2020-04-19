@@ -2,7 +2,6 @@
   "variables": {
     "os_name": "Windows-2019-Updated",
     "headless": "false",
-    "source_path": "",
     "image_name": "updates_wmf5",
     "communicator": "winrm",
     "winrm_username": "Administrator",
@@ -15,15 +14,13 @@
     "builders": [
         {
             "type": "hyperv-vmcx",
-            "source_path": "{{user `source_path`}}",
             "headless": "{{ user `headless` }}",
             "shutdown_command": "shutdown /s /t 10 /f /d p:4:1 /c \"Packer Shutdown\"",
             "shutdown_timeout": "1h",
             "output_directory": "./output-{{user `os_name`}}-{{ user `image_name`}}/",
             "vm_name": "{{user `os_name`}}-{{ user `image_name`}}",
             "guest_additions_mode": "disable",
-            "clone_from_vmcx_path": "{{ user `clone_from_vmcx` }}",
-            "headless": "{{ user `headless` }}",
+            "clone_from_vmcx_path": "{{ user `clone_from_vmcx_path` }}",
             "communicator": "{{ user `communicator` }}",
             "winrm_username": "{{ user `winrm_username` }}",
             "winrm_password": "{{ user `winrm_password` }}",
