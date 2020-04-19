@@ -8,8 +8,12 @@
     "winrm_password": "Test123456",
     "winrm_timeout": "12h",
     "pause_before_connecting": "10m",
-    "clone_from_vmcx_path": "output-win2019-windows-2019-standard-gui-base/Virtual Machines"
-
+    "clone_from_vmcx_path": "output-win2019-windows-2019-standard-gui-base",
+    "switch_name": "external_switch",
+    "enable_dynamic_memory": "true",
+    "cpus": "4",
+    "memory": "4096",
+    "generation": "1"
   },
     "builders": [
         {
@@ -25,7 +29,12 @@
             "winrm_username": "{{ user `winrm_username` }}",
             "winrm_password": "{{ user `winrm_password` }}",
             "winrm_timeout": "{{ user `winrm_timeout` }}",
-            "pause_before_connecting": "{{ user `pause_before_connecting` }}"
+            "pause_before_connecting": "{{ user `pause_before_connecting` }}",
+            "switch_name": "{{ user `external_switch` }}",
+            "enable_dynamic_memory": "{{ user `enable_dynamic_memory` }}",
+            "cpus": "{{ user `cpus` }}",
+            "memory": "{{ user `memory` }}",
+            "generation": "{{ user `generation` }}"
         }
     ],
     "provisioners": [
