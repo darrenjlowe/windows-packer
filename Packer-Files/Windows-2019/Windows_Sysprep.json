@@ -42,9 +42,9 @@
       ],
       "provisioners": [
           {
-              "type": "powershell",
+              "type": "windows-shell",
               "execution_policy": "{{ user `execution_policy` }}",
-              "script": "{{ user `script` }}",
+              "inline": ["C:/Windows/System32/Sysprep/sysprep.exe /oobe /generalize /shutdown /mode:vm"],
               "elevated_user": "{{ user `winrm_username` }}",
               "elevated_password": "{{ user `winrm_password` }}"
           }
