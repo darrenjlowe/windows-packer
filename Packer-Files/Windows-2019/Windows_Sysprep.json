@@ -37,15 +37,19 @@
               "enable_dynamic_memory": "{{ user `enable_dynamic_memory` }}",
               "cpus": "{{ user `cpus` }}",
               "memory": "{{ user `memory` }}",
-              "generation": "{{ user `generation` }}"
+              "generation": "{{ user `generation` }}",
+              "floppy_files": [
+                "default-base/Windows-2019-Standard-GUI/Autounattend.xml",
+                "Scripts/PackerShutdown.bat"
+              ]
           }
       ],
       "provisioners": [
-          {
-              "type": "powershell",
-              "elevated_user": "{{ user `winrm_username` }}",
-              "elevated_password": "{{ user `winrm_password` }}",
-              "inline": ["C:\\Windows\\System32\\Sysprep\\sysprep.exe /oobe /generalize /mode:vm"]
+        {
+            "type": "powershell",
+            "elevated_user": "{{ user `winrm_username` }}",
+            "elevated_password": "{{ user `winrm_password` }}",
+            "script": "Scripts/Set-Sysprep.ps1"
           }
       ]
   }
