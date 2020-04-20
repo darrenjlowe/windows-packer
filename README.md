@@ -36,3 +36,7 @@ Now run packer build ./Packer-Files\Windows-2019\Windows_Updates.json
 This will update the basic VM with all windows patches
 
 By having separate JSON files that build on top of each other, if there is a failure, as its broken down into multiple JSON files, we can modify and ru-run the packer build that failed, without starting from scratch
+
+For the last JSON file to sysprep the image an image, this builds on top of the previous packer image, Windows_Updates.json
+
+Now run packer build ./Packer-Files\Windows-2019\Windows_Sysprep.json
