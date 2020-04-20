@@ -3,7 +3,6 @@
 *.vhd
 output*
 packer_cache*
-ISO*
 /output*
 /packer_cache*
 *.vhdx
