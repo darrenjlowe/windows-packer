@@ -1,67 +1,123 @@
 {
-  "variables": {
-    "os_name": "Windows-2019-Updated",
-    "headless": "false",
-    "image_name": "updates_wmf5",
-    "communicator": "winrm",
-    "winrm_username": "Administrator",
-    "winrm_password": "Test123456",
-    "winrm_timeout": "12h",
-    "pause_before_connecting": "10m",
-    "clone_from_vmcx_path": "output-win2019-windows-2019-standard-gui-base",
-    "switch_name": "external_switch",
-    "enable_dynamic_memory": "true",
-    "cpus": "4",
-    "memory": "4096",
-    "generation": "1"
-  },
-    "builders": [
-        {
-            "type": "hyperv-vmcx",
-            "headless": "{{ user `headless` }}",
-            "shutdown_command": "shutdown /s /t 10 /f /d p:4:1 /c \"Packer Shutdown\"",
-            "shutdown_timeout": "1h",
-            "output_directory": "./output-{{user `os_name`}}-{{ user `image_name`}}/",
-            "vm_name": "{{user `os_name`}}-{{ user `image_name`}}",
-            "guest_additions_mode": "disable",
-            "clone_from_vmcx_path": "{{ user `clone_from_vmcx_path` }}",
-            "communicator": "{{ user `communicator` }}",
-            "winrm_username": "{{ user `winrm_username` }}",
-            "winrm_password": "{{ user `winrm_password` }}",
-            "winrm_timeout": "{{ user `winrm_timeout` }}",
-            "switch_name": "{{ user `external_switch` }}",
-            "enable_dynamic_memory": "{{ user `enable_dynamic_memory` }}",
-            "cpus": "{{ user `cpus` }}",
-            "memory": "{{ user `memory` }}",
-            "generation": "{{ user `generation` }}"
-        }
-    ],
-    "provisioners": [
-        {
-            "type": "powershell",
-            "execution_policy": "bypass",
-            "inline": [
-                "Install-PackageProvider -Name NuGet -Force",
-                "Install-Module -Name PSWindowsUpdate -Force",
-                "Get-Package -Name PSWindowsUpdate",
-                "Install-WindowsUpdate -AcceptAll -Install -AutoReboot -force"
-            ],
-            "elevated_user": "{{ user `winrm_username` }}",
-            "elevated_password": "{{ user `winrm_password` }}",
-            "valid_exit_codes": [
-                0,
-                1,
-                2,
-                3,
-                5,
-                10,
-                15
-            ]
-        },
-        {
-            "type": "windows-restart",
-            "restart_timeout": "1h"
-        }
-    ]
-
-}
+    "variables": {
+      "os_name": "Windows-2019-Updated",
+      "headless": "false",
+      "image_name": "updates_wmf5",
+      "communicator": "winrm",
+      "winrm_username": "Administrator",
+      "winrm_password": "Test123456",
+      "winrm_timeout": "12h",
+      "pause_before_connecting": "10m",
+      "clone_from_vmcx_path": "output-win2019-windows-2019-standard-gui-base",
+      "switch_name": "external_switch",
+      "enable_dynamic_memory": "true",
+      "cpus": "4",
+      "memory": "4096",
+      "generation": "1",
+      "execution_policy": "bypass",
+      "script": "scripts/install_windows_updates.ps1"
+    },
+      "builders": [
+          {
+              "type": "hyperv-vmcx",
+              "headless": "{{ user `headless` }}",
+              "shutdown_command": "shutdown /s /t 10 /f /d p:4:1 /c \"Packer Shutdown\"",
+              "shutdown_timeout": "1h",
+              "output_directory": "./output-{{user `os_name`}}-{{ user `image_name`}}/",
+              "vm_name": "{{user `os_name`}}-{{ user `image_name`}}",
+              "guest_additions_mode": "disable",
+              "clone_from_vmcx_path": "{{ user `clone_from_vmcx_path` }}",
+              "communicator": "{{ user `communicator` }}",
+              "winrm_username": "{{ user `winrm_username` }}",
+              "winrm_password": "{{ user `winrm_password` }}",
+              "winrm_timeout": "{{ user `winrm_timeout` }}",
+              "switch_name": "{{ user `external_switch` }}",
+              "enable_dynamic_memory": "{{ user `enable_dynamic_memory` }}",
+              "cpus": "{{ user `cpus` }}",
+              "memory": "{{ user `memory` }}",
+              "generation": "{{ user `generation` }}"
+          }
+      ],
+      "provisioners": [
+          {
+              "type": "powershell",
+              "execution_policy": "{{ user `execution_policy` }}",
+              "script": "{{ user `script` }}",
+              "elevated_user": "{{ user `winrm_username` }}",
+              "elevated_password": "{{ user `winrm_password` }}",
+              "valid_exit_codes": [
+                  0,
+                  1,
+                  2,
+                  3,
+                  5,
+                  10,
+                  15
+              ]
+          },
+          {
+              "type": "windows-restart",
+              "restart_timeout": "1h"
+          },
+          {
+              "type": "powershell",
+              "execution_policy": "{{ user `execution_policy` }}",
+              "script": "{{ user `script` }}",
+              "elevated_user": "{{ user `winrm_username` }}",
+              "elevated_password": "{{ user `winrm_password` }}",
+              "valid_exit_codes": [
+                  0,
+                  1,
+                  2,
+                  3,
+                  5,
+                  10,
+                  15
+              ]
+          },
+          {
+              "type": "windows-restart",
+              "restart_timeout": "1h"
+          },
+          {
+              "type": "powershell",
+              "execution_policy": "{{ user `execution_policy` }}",
+              "script": "{{ user `script` }}",
+              "elevated_user": "{{ user `winrm_username` }}",
+              "elevated_password": "{{ user `winrm_password` }}",
+              "valid_exit_codes": [
+                  0,
+                  1,
+                  2,
+                  3,
+                  5,
+                  10,
+                  15
+              ]
+          },
+          {
+              "type": "windows-restart",
+              "restart_timeout": "1h"
+          },
+          {
+              "type": "powershell",
+              "execution_policy": "{{ user `execution_policy` }}",
+              "script": "{{ user `script` }}",
+              "elevated_user": "{{ user `winrm_username` }}",
+              "elevated_password": "{{ user `winrm_password` }}",
+              "valid_exit_codes": [
+                  0,
+                  1,
+                  2,
+                  3,
+                  5,
+                  10,
+                  15
+              ]
+          },
+          {
+              "type": "windows-restart",
+              "restart_timeout": "1h"
+          }
+      ]
+  }
