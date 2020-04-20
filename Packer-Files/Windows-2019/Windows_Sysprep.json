@@ -39,7 +39,7 @@
               "memory": "{{ user `memory` }}",
               "generation": "{{ user `generation` }}",
               "floppy_files": [
-                "default-base/Windows-2019-Standard-GUI/Autounattend.xml",
+                "default-base/Windows-2019-Standard-GUI/Post_Autounattend.xml",
                 "Scripts/PackerShutdown.bat"
               ]
           }
