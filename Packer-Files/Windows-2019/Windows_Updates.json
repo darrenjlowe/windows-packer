@@ -2,7 +2,7 @@
     "variables": {
       "os_name": "Windows-2019-Updated",
       "headless": "false",
-      "image_name": "updates_wmf5",
+      "image_name": "updates",
       "communicator": "winrm",
       "winrm_username": "Administrator",
       "winrm_password": "Test123456",
