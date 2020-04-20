@@ -15,9 +15,7 @@
       "memory": "4096",
       "generation": "1",
       "execution_policy": "bypass",
-      "guest_additions_mode": "disable",
-      "shutdown_timeout": "15m",
-      "script": "scripts/sysprep.ps1"
+      "guest_additions_mode": "disable"
     },
       "builders": [
           {
@@ -43,10 +41,7 @@
       "provisioners": [
           {
               "type": "windows-shell",
-              "execution_policy": "{{ user `execution_policy` }}",
-              "inline": ["C:/Windows/System32/Sysprep/sysprep.exe /oobe /generalize /shutdown /mode:vm"],
-              "elevated_user": "{{ user `winrm_username` }}",
-              "elevated_password": "{{ user `winrm_password` }}"
+              "inline": ["C:\\Windows\\System32\\Sysprep\\sysprep.exe /oobe /generalize /shutdown /mode:vm"]
           }
       ]
   }
