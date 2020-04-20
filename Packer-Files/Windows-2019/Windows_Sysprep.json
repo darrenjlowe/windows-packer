@@ -9,7 +9,7 @@
       "winrm_timeout": "12h",
       "pause_before_connecting": "10m",
       "clone_from_vmcx_path": "output-Windows-2019-Updated-updates",
-      "shutdown_command": "shutdown /s /t 10 /f /d p:4:1 /c \"Packer Shutdown\"",
+      "shutdown_command": "a:/PackerShutdown.bat",
       "switch_name": "external_switch",
       "enable_dynamic_memory": "true",
       "cpus": "4",
