@@ -9,13 +9,15 @@
       "winrm_timeout": "12h",
       "pause_before_connecting": "10m",
       "clone_from_vmcx_path": "output-Windows-2019-Updated-updates",
+      "shutdown_command": "shutdown /s /t 10 /f /d p:4:1 /c \"Packer Shutdown\"",
       "switch_name": "external_switch",
       "enable_dynamic_memory": "true",
       "cpus": "4",
       "memory": "4096",
       "generation": "1",
       "execution_policy": "bypass",
-      "guest_additions_mode": "disable"
+      "guest_additions_mode": "disable",
+      "shutdown_timeout": "15m"
     },
       "builders": [
           {
@@ -40,8 +42,10 @@
       ],
       "provisioners": [
           {
-              "type": "windows-shell",
-              "inline": ["C:\\Windows\\System32\\Sysprep\\sysprep.exe /oobe /generalize /shutdown /mode:vm"]
+              "type": "powershell",
+              "elevated_user": "{{ user `winrm_username` }}",
+              "elevated_password": "{{ user `winrm_password` }}",
+              "inline": ["C:\\Windows\\System32\\Sysprep\\sysprep.exe /oobe /generalize /mode:vm"]
           }
       ]
   }
