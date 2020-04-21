@@ -1,6 +1,6 @@
 {
     "variables": {
-      "os_name": "Windows-2019-Sysprep",
+      "os_name": "windows-2019-standard-core",
       "headless": "false",
       "image_name": "sysprep",
       "communicator": "winrm",
@@ -39,7 +39,7 @@
               "memory": "{{ user `memory` }}",
               "generation": "{{ user `generation` }}",
               "floppy_files": [
-                "default-base/Windows-2019-Standard-GUI/Post_Autounattend.xml",
+                "default-base/Windows-2019-Standard-Core/Post_Autounattend.xml",
                 "Scripts/PackerShutdown.bat"
               ]
           }

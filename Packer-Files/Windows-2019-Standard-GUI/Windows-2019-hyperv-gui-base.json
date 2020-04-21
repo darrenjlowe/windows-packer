@@ -1,7 +1,7 @@
 {
   "variables": {
-    "os_name": "win2019",
-    "image_name": "windows-2019-standard-gui-base",
+    "os_name": "windows-2019-hyperv-standard-gui",
+    "image_name": "base",
     "guest_additions_mode": "disable",
     "iso_url": "./ISO/Windows-2019/SW_DVD9_Win_Server_STD_CORE_2019_1809.2_64Bit_English_DC_STD_MLF_X22-18452.ISO",
     "iso_checksum": "F60E87BC8A413D00D46E59281A1C14F3FFDA8570",
