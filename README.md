@@ -45,8 +45,8 @@ You should now have a Hyper-V sysprep'd Windows 2019 Standard Server with Deskto
 
 For Windows 2019 Core
 
-packer build ./Packer-Files\Windows-2019-Standard-GUI\Windows-2019-hyperv-core-base.json
+packer build ./Packer-Files\Windows-2019-Standard-Core\Windows-2019-hyperv-core-base.json
 
-packer build ./Packer-Files\Windows-2019-Standard-GUI\Windows-2019-hyperv-core-updates.json
+packer build ./Packer-Files\Windows-2019-Standard-Core\Windows-2019-hyperv-core-updates.json
 
-packer build ./Packer-Files\Windows-2019-Standard-GUI\Windows-2019-hyperv-core-sysprep.json
+packer build ./Packer-Files\Windows-2019-Standard-Core\Windows-2019-hyperv-core-sysprep.json
