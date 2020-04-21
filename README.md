@@ -9,7 +9,7 @@ On Windows 10, enable HyperV if its not already enabled
 
 Create a Switch in HyperV so you can get an IP Address from you network, currently setup to be called external_switch
 
-Change Packer-Files\Windows-2019\Windows-2019-hyperV.json if you have a different switch name
+Change Packer-Files\Windows-2019-Standard-GUI\Windows-2019-hyperv-gui-base.json if you have a different switch name
 
 "switch_name": "external_switch",
 
@@ -42,3 +42,11 @@ For the last JSON file to sysprep the image, this builds on top of the previous 
 Now run packer build ./Packer-Files\Windows-2019-Standard-GUI\Windows-2019-hyperv-gui-sysprep.json
 
 You should now have a Hyper-V sysprep'd Windows 2019 Standard Server with Desktop Experience
+
+For Windows 2019 Core
+
+packer build ./Packer-Files\Windows-2019-Standard-GUI\Windows-2019-hyperv-core-base.json
+
+packer build ./Packer-Files\Windows-2019-Standard-GUI\Windows-2019-hyperv-core-updates.json
+
+packer build ./Packer-Files\Windows-2019-Standard-GUI\Windows-2019-hyperv-core-sysprep.json
