@@ -1,6 +1,6 @@
 {
     "variables": {
-      "os_name": "windows-2019-standard-core",
+      "os_name": "windows-2019-hyperv-standard-core",
       "headless": "false",
       "image_name": "updates",
       "communicator": "winrm",
@@ -8,7 +8,7 @@
       "winrm_password": "Test123456",
       "winrm_timeout": "12h",
       "pause_before_connecting": "10m",
-      "clone_from_vmcx_path": "output-win2019-windows-2019-standard-gui-base",
+      "clone_from_vmcx_path": "output-windows-2019-hyperv-standard-core-base",
       "switch_name": "external_switch",
       "enable_dynamic_memory": "true",
       "cpus": "4",

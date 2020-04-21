@@ -1,6 +1,6 @@
 {
   "variables": {
-    "os_name": "windows-2019-standard-core",
+    "os_name": "windows-2019-hyperv-standard-core",
     "image_name": "base",
     "guest_additions_mode": "disable",
     "iso_url": "./ISO/Windows-2019/SW_DVD9_Win_Server_STD_CORE_2019_1809.2_64Bit_English_DC_STD_MLF_X22-18452.ISO",
