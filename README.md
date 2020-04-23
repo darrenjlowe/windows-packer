@@ -50,3 +50,5 @@ packer build ./Packer-Files\Windows-2019-HyperV-Standard-Core\Windows-2019-hyper
 packer build ./Packer-Files\Windows-2019-HyperV-Standard-Core\Windows-2019-hyperv-core-updates.json
 
 packer build ./Packer-Files\Windows-2019-HyperV-Standard-Core\Windows-2019-hyperv-core-sysprep.json
+
+Added VMWare Builds - Not fully tested
