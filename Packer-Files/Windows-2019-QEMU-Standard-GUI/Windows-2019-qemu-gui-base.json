@@ -7,6 +7,7 @@
     "iso_checksum_type": "sha1",
     "disk_size": "81920",
     "headless": "false",
+    "virtio_win_iso": "./ISO/QEMU-Virtio/virtio-win-0.1.171.iso",
     "communicator": "winrm",
     "winrm_username": "Administrator",
     "winrm_password": "Test123456",
@@ -21,7 +22,7 @@
       {
         "type": "qemu",
         "format": "qcow2",
-        "disk_interface": "virtio",
+        "disk_interface": "virtio-scsi",
         "iso_url": "{{ user `iso_url` }}",
         "iso_checksum": "{{ user `iso_checksum` }}",
         "iso_checksum_type": "{{ user `iso_checksum_type` }}",
@@ -37,17 +38,6 @@
         "shutdown_timeout": "{{ user `shutdown_timeout` }}",
         "cpus": "{{ user `cpus` }}",
         "memory": "{{ user `memory` }}",
-        "accelerator": "kvm",
-        "qemuargs": [
-          [
-            "-drive",
-            "file={{ user `virtio_win_iso` }},media=cdrom,index=3"
-          ],
-          [
-            "-drive",
-            "file={{ user `name` }}-qemu/{{ .Name }},if=virtio,cache=writeback,discard=ignore,index=1"
-          ]
-        ],
         "floppy_files": [
           "default-base/Windows-2019-Standard-Core/Autounattend.xml",
           "scripts/setup.ps1"
